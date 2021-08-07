@@ -1,1 +1,41 @@
-<p>courses-list works!</p>
+<div class="buttons">
+    <button 
+          [ngStyle]="allCourses == displayedSubject? 
+          {'background-color': '#3f51b5', 'color':  'white'} :  
+          {'background-color': 'white', 'color':  '#3f51b5'}"
+          class="button" mat-stroked-button color="primary" 
+          routerLink="['courses']"  
+          [queryParams] = "{ subject: allCourses }">
+          All
+      </button>
+  
+      <button *ngFor="let option of subjects; let i = index"
+          [ngStyle]="option.toLowerCase() == displayedSubject? 
+          {'background-color': '#3f51b5', 'color':  'white'} :  
+          {'background-color': 'white', 'color':  '#3f51b5'}"
+          class="button" mat-stroked-button color="primary" (click)="changeStyling(option); 
+          selectSubject(option)" 
+          routerLink="['courses']"  
+          [queryParams] = "{ subject: option }">
+          {{option}}
+      </button>
+</div>
+<app-add-course></app-add-course>
+<div class="cardContainer">
+    <mat-card *ngFor="let option of courses" class="matCard">
+        <mat-card-header>
+            <mat-card-title>
+                {{option.Title}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                {{option.Text}}
+            </p>
+            <div *ngIf="option.files">
+                <strong>Attachments:</strong>
+                <app-course-files [course] = "option"></app-course-files>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

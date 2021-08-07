@@ -1,0 +1,47 @@
+<div>
+    <h1 id="addCourse">Add a course:</h1>
+    <form [formGroup]="addCourse" #formDirective="ngForm" (ngSubmit) = "onSubmit(formDirective)">
+        <mat-form-field appearance="outline">
+            <mat-label for="courseTitle">Title</mat-label>
+            <input matInput type="text" id="courseTitle" formControlName="courseTitle">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label for="courseText">Content</mat-label>
+            <textarea matInput id="courseText" formControlName="courseText"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label for="courseSubject">Subject</mat-label>
+            <mat-select id="courseSubject" formControlName="courseSubject">
+                <mat-option *ngFor="let option of subjects; let i = index" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <label>
+            <input
+              type="file"
+              class="text-nowrap text-truncate"
+              (change)="selectFile($event)"
+            />
+          </label>
+          
+          <button
+            class="btn btn-success btn-sm"
+            [disabled]="!selectedFiles"
+            (click)="upload()">
+            Upload
+          </button>
+          
+          <div *ngIf="currentFileUpload" class="progress mt-2">
+            <div
+              class="progress-bar progress-bar-info"
+              role="progressbar"
+              attr.aria-valuenow="{{ percentage }}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [ngStyle]="{ width: percentage + '%' }">
+              {{ percentage }}%
+            </div>
+          </div>
+        <app-files-list (FilesToAddWithCourse) = "FilesAttachedToCourse($event)"></app-files-list>
+        <button mat-raised-button color="primary" type = "submit">Add</button>
+    </form>
+</div>
