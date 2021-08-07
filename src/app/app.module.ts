@@ -27,6 +27,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddNewPostComponent } from './forum-section/add-new-post/add-new-post.component';
+import { CommentsComponent } from './forum-section/comments/comments.component';
+import { PostDetailsComponent } from './forum-section/post-details/post-details.component';
+import { PostsListComponent } from './forum-section/posts-list/posts-list.component';
+import { DateAgoPipe } from './forum-section/pipes/date-ago.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +43,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FileDetailsComponent,
     FilesListComponent,
     UploadFileComponent,
+    AddNewPostComponent,
+    CommentsComponent,
+    PostDetailsComponent,
+    PostsListComponent,
+    DateAgoPipe,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

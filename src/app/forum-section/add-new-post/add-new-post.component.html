@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" *ngIf="!submitted">
+            <form [formGroup]="AddPost" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="PostHeadline">Post Headline:</label>
+                    <input formControlName="PostHeadline" type="text" id="PostHeadline" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="PostText">Post Text:</label>
+                    <input formControlName="PostText" type="text" id="PostText" class="form-control">
+
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Author">Author's name:</label>
+                    <input formControlName="Author" type="text" id="Author" class="form-control">
+
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Topic">Post Topic:</label>
+                    <input formControlName="Topic" type="text" id="Topic" class="form-control" matInput
+                        [matAutocomplete]='auto' [formControl]='myControl'>
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]='displayFn'>
+                        <mat-option *ngFor='let option of filteredOptions | async' [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+                <button class="btn btn-success" type="submit">submit</button>
+                <button class="btn btn-success" routerLink="/posts">Back</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8" *ngIf="submitted">
+        <h2>You added a Post successfully</h2>
+        <button class="btn btn-warning" (click)="newPost()">Add a new Post</button>
+        <button class="btn btn-warning" routerLink="/posts">Back to the forum</button>
+    </div>
+</div>

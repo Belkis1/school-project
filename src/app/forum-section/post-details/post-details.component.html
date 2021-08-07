@@ -1,0 +1,22 @@
+<div *ngIf="certainPost" class="container">
+    <mat-card>
+            <mat-card-subtitle>{{certainPost.Topic}}</mat-card-subtitle>
+            <mat-card-title>{{certainPost.PostHeadline}}</mat-card-title>
+            <mat-card-content>
+                <p>{{certainPost.PostText}}</p>
+                <p>{{certainPost.numberOFComments}} Comments</p>
+            </mat-card-content>
+    </mat-card>
+    <form [formGroup]="AddComment" #formDirective="ngForm" (ngSubmit)="onCommentSubmit(formDirective)" class="commentForm">
+        <mat-form-field appearance="outline" [color]= 'controlColor'>
+            <mat-label>Your Comment</mat-label>
+            <textarea matInput formControlName="commentContent"></textarea>
+        </mat-form-field >
+        <mat-form-field appearance="outline" [color]= 'controlColor'>
+            <mat-label>Your name</mat-label>
+            <input matInput formControlName="commentAuthor">
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" class="commentButton" [disabled] = 'AddComment.invalid'>Comment</button>
+    </form>
+    <app-comments [comments] = 'comments'></app-comments>
+</div>

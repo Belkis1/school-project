@@ -1,0 +1,14 @@
+.commentForm {
+    display: grid;
+    margin: 2rem;
+}
+
+.btn-info {
+    width: 6rem;
+}
+
+.commentButton {
+    width: 6rem;
+    height: 2rem;
+}
+
