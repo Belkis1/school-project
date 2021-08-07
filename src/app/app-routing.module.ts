@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoursesListComponent } from './components/courses-section/courses-list/courses-list.component';
-import { AddNewPostComponent } from './forum-section/add-new-post/add-new-post.component';
-import { PostDetailsComponent } from './forum-section/post-details/post-details.component';
-import { PostsListComponent } from './forum-section/posts-list/posts-list.component';
+import { AddNewPostComponent } from './components/forum-section/add-new-post/add-new-post.component';
+import { PostDetailsComponent } from './components/forum-section/post-details/post-details.component';
+import { PostsListComponent } from './components/forum-section/posts-list/posts-list.component';
 
 const routes: Routes = [
   {
