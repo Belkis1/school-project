@@ -31,8 +31,10 @@ import { AddNewPostComponent } from './forum-section/add-new-post/add-new-post.c
 import { CommentsComponent } from './forum-section/comments/comments.component';
 import { PostDetailsComponent } from './forum-section/post-details/post-details.component';
 import { PostsListComponent } from './forum-section/posts-list/posts-list.component';
-import { DateAgoPipe } from './forum-section/pipes/date-ago.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,8 @@ import { SearchPipe } from './pipes/search.pipe';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
